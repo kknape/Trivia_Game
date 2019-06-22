@@ -1,0 +1,28 @@
+.myContainer {
+    margin: 100px 200px 0px 200px;
+} 
+
+.myTitle {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.questionItem {
+    font-size: 24pt;
+    padding: 10px 0px 5px 0px;
+}
+
+.answerChoices {
+    font-size: 16pt;
+    margin: 10px 10px 10px 20px;
+    line-height: normal;
+}
+
+.answerItems {
+    padding: 0px 10px 10px 5px;
+    margin: 0px 10px 10px 20px;
+}
+
+.answerInput {
+    margin: 10px 0px 0px 0px;
+}
