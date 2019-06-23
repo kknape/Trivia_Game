@@ -5,6 +5,26 @@
 .myTitle {
     text-align: center;
     margin-bottom: 40px;
+    font-display: em;
+}
+
+.myInstructions{
+ font-size: 18pt;
+}
+
+#timer{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 48px;
+    text-align: center;
+    display: inline-block;
+}
+
+#timeLeft{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 48px;
+    display: inline-block;
+    margin-left: 20px;
+  
 }
 
 .questionItem {
@@ -25,4 +45,12 @@
 
 .answerInput {
     margin: 10px 0px 0px 0px;
+}
+
+.correctScore {
+    font-size: 16pt;
+}
+
+.incorrectScore {
+    font-size: 16pt;
 }
