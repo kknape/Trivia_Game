@@ -7,60 +7,15 @@ $(document).ready(function(){
 //when all questions have been answered evaluate if answers are correct or incorrect 
 //evaluate & display how many incorrect answers were input
 
-//quiz variables
+$("#start").on("click", function(){
+    game.start();
+})
 
+$(document).on('click', '#end', function(){
+    game.done();
+})
 
-var numCorrect = 0;
-var numIncorrect = 0;
-
-//******Begin Timer*******
-//timer variables
-var intervalId;
-var clockRunning = false; 
-var time = 30;
-//timer functions
-    function reset() {
-        time = 30;
-        $("#timeLeft").text("30");  // reset to 30
-    }
-
-    function start() {  // Use setInterval to start the count here and set the clock to running.
-        if (!clockRunning) {
-        intervalId = setInterval(count, 1000);
-        clockRunning = true;
-        }
-    }
-    //Use clearInterval to stop the count here and set the clock to not be running.
-    function stop() {
-        clearInterval(intervalId);
-        clockRunning = false;
-      }
-    // Decrement time by 1
-    function count() {       
-           if (time == 0){
-            alert("Sorry, time's up!");
-            numCorrect =$("<div>");
-            numCorrect.attr({
-                "class": "correctScore"
-            });
-
-            numIncorrect =$("<div>");
-            numIncorrect.attr({
-                    "class": "incorrectScore"
-                });
-
-                stop();
-           }
-           else{
-               time--; 
-                $("#timeLeft").html(time);
-
-                 }
-              }   
-    
-
-//******/End Timer*******
-
+//questions array
 var questions = [
     {   triviaQuestion: "What color is a blueberry?",
         answerOptions: ["blue", "green", "red"],
@@ -102,26 +57,110 @@ var questions = [
           correctAns: "12"
            }
       ];
+       
+    var game = {
+        correct: 0,
+        incorrect: 0,
+        unasnwered: 0,
+        counter: 30,
+        countdown: function(){
+            game.counter--;
+            $("#counter").html(game.counter);
+            if (game.counter <=0){
+                console.log("Time is up!");
+                game.done();
+                }
+            },
+        start: function() {         
+            timer = setInterval(game.countdown,1000);
+                $("#qWrapper").prepend('<h2>Time Remaining: <span id="counter">120</span> Seconds</h2>');
 
-    $("#start").on("click", function(){
-            start();
-            $("#start").remove();
-
-            for (var i=0; i<questions.length; i++){
-                $("#qWrapper").append('<h2>' + questions[i].triviaQuestion + '</h2>');
+                $("#start").remove(); //removes Start button after clicked
+           //     $(document).on("click", "#end", function() {
+           //         count();
+                    for (var i=0; i<questions.length; i++){
+                        $("#qWrapper").append('<h2>' + questions[i].triviaQuestion + '</h2>')
                 
-                for (var j=0; j<questions[i].answerOptions.length; j++) {
-                    $("#qWrapper").append("<input type='radio' name='triviaQuestion-"+i+"'value='"+questions[i].answerOptions[j]+ "'>"+questions[i].answerOptions[j])
-                        }
-                 }   
-            })
-        
-var game = {
-    correct: 0,
-    incorrect: 0,
-    counter: 120,
-}
-
+                     for (var j=0; j<questions[i].answerOptions.length; j++) {   $("#qWrapper").append("<input type='radio'       name='triviaQuestion-"+i+"'value='"+questions[i].answerOptions[j]+ "'>"+questions[i].answerOptions[j])
+                       }
+                     }
+               $("#qWrapper").append('<button id="end">Done</button>')     
+            },
+        done: function(){
+            $.each($("input[name='triviaQuestion-0']:checked"),function(){
+                if($(this).val()==questions[0].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            $.each($("input[name='triviaQuestion-1']:checked"),function(){
+                if($(this).val()==questions[1].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            $.each($("input[name='triviaQuestion-2']:checked"),function(){
+                if($(this).val()==questions[2].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            $.each($("input[name='triviaQuestion-3']:checked"),function(){
+                if($(this).val()==questions[3].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            $.each($("input[name='triviaQuestion-4']:checked"),function(){
+                if($(this).val()==questions[4].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            $.each($("input[name='triviaQuestion-5']:checked"),function(){
+                if($(this).val()==questions[5].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            $.each($("input[name='triviaQuestion-6']:checked"),function(){
+                if($(this).val()==questions[6].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            $.each($("input[name='triviaQuestion-7']:checked"),function(){
+                if($(this).val()==questions[7].correcAns){
+                    game.correct++;
+                }
+                else {
+                    game.incorrect++;
+                }
+            });
+            this.result();
+            },
+        result: function(){
+             clearInterval(timer);
+             $("#qWrapper h2").remove();
+             $("#qWrapper").html("<h2>All done!</h2>");
+             $("#qWrapper").append("<h3>Correct Answers:" +this.correct+"</h3>");
+             $("#qWrapper").append("<h3>Inorrect Answers:" +this.incorrect+"</h3>");
+             $("#qWrapper").append("<h3>Unanswered Questions:" +(questions.length-(this.incorrect+this.correct))+"</h3>");
+         }
+    } //end of game object
 //doc-ready closing tag
-    });
-
+});
