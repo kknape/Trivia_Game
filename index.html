@@ -23,32 +23,78 @@
 <body>
     <div class="jumbotron myContainer">
         <h1 class="display-4 myTitle">Trivia Game</h1>
-        <p class="lead myInstructions">You have 30 seconds to see how many questions you can correctly answer. You'd better get busy the timer has started!</p>
+        <p class="lead myInstructions">You'll have 30 seconds to see how many questions you can correctly answer.</p>
         
         <div id="timer">TIME REMAINING:</div>
         <div id="timeLeft">30</div>
         <hr class="my-4">
 
-        <div class="questionItem">
-            1. This is the first question....
+    <div id="qWrapper">
+        <button id="start">Start</button>
+<!--Question 1
+        <div class="triviaQuestion" id="questionOne">
+          1. What color is a blueberry?
         </div>
-        <div class="answerChoices">
+        <div class="choices" id="choicesQ1">
         <div class="form-check">
-            <input class="form-check-input answerInput" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-            <label class="form-check-label answerItems" for="exampleRadios1">The FIRST ANSWER CHOICE</label>
+            <input class="form-check-input answerInput" type="radio" name="q1choice1-Radio" id="q1choice1-Radio" value="option1">
+            <label class="form-check-label answerItems" for="q1choice1-Radio">Blue</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input answerInput" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-            <label class="form-check-label answerItems" for="exampleRadios2"">The SECOND ANSWER CHOICE</label>
+            <input class="form-check-input answerInput" type="radio" name="q1choice2-Radio" id="q1choice2-Radio" value="option2">
+            <label class="form-check-label answerItems" for="q1choice2-Radio">Red</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input answerInput" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-            <label class="form-check-label answerItems" for="exampleRadios3">The THIRD ANSWER CHOICE</label>
+            <input class="form-check-input answerInput" type="radio" name="q1choice3-Radio" id="q1choice3-Radio" value="option3">
+            <label class="form-check-label answerItems" for="q1choice3-Radio">Green</label>
           </div>
-        
-        </div>
         </div>
 
+ Question 2
+        <div class="triviaQuestion" id="questionTwo">
+           2. How many days in a week?
+      </div>
+      <div class="choices" id="choicesQ2">
+      <div class="form-check">
+          <input class="form-check-input answerInput" type="radio" name="q2choice1-Radio" id="q2choice1-Radio" value="option1">
+          <label class="form-check-label answerItems" for="q2choice1-Radio">Three</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input answerInput" type="radio" name="q2choice2-Radio" id="q2choice2-Radio" value="option2">
+          <label class="form-check-label answerItems" for="q2choice2-Radio">Five</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input answerInput" type="radio" name="q2choice3-Radio" id="q2choice3-Radio" value="option3">
+          <label class="form-check-label answerItems" for="q2choice3-Radio">Seven</label>
+        </div>
+      
+      </div>
+        
+
+ Question 3 
+        <div class="triviaQuestion" id="questionThree">
+           3. Which way is up? 
+      </div>
+      <div class="choices" id="choicesQ3">
+      <div class="form-check">
+          <input class="form-check-input answerInput" type="radio" name="q3choice1-Radio" id="q3choice1-Radio" value="option1">
+          <label class="form-check-label answerItems" for="q3choice1-Radio">Top</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input answerInput" type="radio" name="q3choice2-Radio" id="q3choice2-Radio" value="option2">
+          <label class="form-check-label answerItems" for="q3choice2-Radio">Left</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input answerInput" type="radio" name="q3choice3-Radio" id="q3choice3-Radio" value="option3">
+          <label class="form-check-label answerItems" for="q3choice3-Radio">North</label>
+        </div>
+      </div>
+    </div> -->
+
+
+  </div>  <!--end qWrapper-->
+    <!--end jumbotron container-->
+    </div> 
     <script src="assets/javascript/app.js"></script>
 </body>
 </html>

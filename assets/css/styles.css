@@ -15,8 +15,7 @@
 #timer{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 48px;
-    text-align: center;
-    display: inline-block;
+    display: block;
 }
 
 #timeLeft{
@@ -27,12 +26,22 @@
   
 }
 
-.questionItem {
+.triviaQuestion {
     font-size: 24pt;
     padding: 10px 0px 5px 0px;
 }
 
-.answerChoices {
+
+.choicesQ1 {
+    font-size: 16pt;
+    margin: 10px 10px 10px 20px;
+    line-height: normal;
+}
+.choicesQ2 {
+    font-size: 16pt;
+    margin: 10px 10px 10px 20px;
+    line-height: normal;
+}.choicesQ3 {
     font-size: 16pt;
     margin: 10px 10px 10px 20px;
     line-height: normal;
@@ -54,3 +63,7 @@
 .incorrectScore {
     font-size: 16pt;
 }
+
+/*#questionOne{};
+#questionTwo;
+#questionThree;*/
