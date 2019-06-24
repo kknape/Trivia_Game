@@ -62,7 +62,7 @@ var questions = [
         correct: 0,
         incorrect: 0,
         unasnwered: 0,
-        counter: 30,
+        counter: 240,
         countdown: function(){
             game.counter--;
             $("#counter").html(game.counter);
@@ -79,12 +79,15 @@ var questions = [
            //     $(document).on("click", "#end", function() {
            //         count();
                     for (var i=0; i<questions.length; i++){
-                        $("#qWrapper").append('<h2>' + questions[i].triviaQuestion + '</h2>')
+                        $("#qWrapper").append('<div class="triviaQuestion">' + questions[i].triviaQuestion + '</div>')
                 
-                     for (var j=0; j<questions[i].answerOptions.length; j++) {   $("#qWrapper").append("<input type='radio'       name='triviaQuestion-"+i+"'value='"+questions[i].answerOptions[j]+ "'>"+questions[i].answerOptions[j])
+                     for (var j=0; j<questions[i].answerOptions.length; j++) {  
+                        $("#qWrapper").append("<div class='form-check'></<div><input class='form-check-input answerInput' type='radio' name='triviaQuestion-"+i+"' value='"+questions[i].answerOptions[j]+"'>"+
+                        "<label class='form-check-label answerItems' for='triviaQuestion-"+i+"'>' + questions[i].answerOptions[j] + '</label>'")
+
                        }
                      }
-               $("#qWrapper").append('<button id="end">Done</button>')     
+               $("#qWrapper").append('<br><button id="end">Done</button>')     
             },
         done: function(){
             $.each($("input[name='triviaQuestion-0']:checked"),function(){
