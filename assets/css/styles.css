@@ -8,7 +8,7 @@
     font-display: em;
 }
 
-.myInstructions{
+#myInstructions{
  font-size: 18pt;
 }
 
@@ -47,7 +47,7 @@
 .incorrectScore {
     font-size: 16pt;
 }
-#end {
+#end, #replay {
     padding: 5px 5px 5px 5px;
     margin: 10px 10px 10px 10px;
 }

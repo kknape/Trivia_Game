@@ -1,18 +1,17 @@
 //The Trivia Game - My javascript file //
 $(document).ready(function(){
 
-//Assign the correct answer to each answer choice
-//Timer countsdown from 30 seconds to zero
-//when timer is at zero, stop the timer and evaluate if answers are correct
-//when all questions have been answered evaluate if answers are correct or incorrect 
-//evaluate & display how many incorrect answers were input
-
-$("#start").on("click", function(){
+//User clicks "start" to begin the game. Timer starts, question sets are displayed.
+$(document).on('click', '#start', function(){
     game.start();
 })
 
 $(document).on('click', '#end', function(){
     game.done();
+})
+
+$(document).on('click', '#replay', function(){
+    game.reset();
 })
 
 //questions array
@@ -62,36 +61,38 @@ var questions = [
         correct: 0,
         incorrect: 0,
         unasnwered: 0,
-        counter: 240,
+        counter: 5,
         countdown: function(){
             game.counter--;
             $("#counter").html(game.counter);
-            if (game.counter <=0){
-                console.log("Time is up!");
+            if (game.counter < 0){
+                alert("Time is up!");
                 game.done();
                 }
             },
         start: function() {         
             timer = setInterval(game.countdown,1000);
-                $("#qWrapper").prepend('<h2>Time Remaining: <span id="counter">120</span> Seconds</h2>');
+                $("#qWrapper").prepend('<h2>Time Remaining: <span id="counter">30</span> Seconds</h2>');
 
                 $("#start").remove(); //removes Start button after clicked
-           //     $(document).on("click", "#end", function() {
-           //         count();
+
+             //   $(document).on("click", "#end", function() {
+              //      count();
+
                     for (var i=0; i<questions.length; i++){
                         $("#qWrapper").append('<div class="triviaQuestion">' + questions[i].triviaQuestion + '</div>')
                 
                      for (var j=0; j<questions[i].answerOptions.length; j++) {  
                         $("#qWrapper").append("<div class='form-check'></<div><input class='form-check-input answerInput' type='radio' name='triviaQuestion-"+i+"' value='"+questions[i].answerOptions[j]+"'>"+
                         "<label class='form-check-label answerItems' for='triviaQuestion-"+i+"'> "+ questions[i].answerOptions[j] +" </label>")
-
                        }
                      }
-               $("#qWrapper").append('<br><button id="end">Done</button>')     
+                    
+               $("#qWrapper").append('<br><button id="end">Done</button>')    //adds Done button if user finishes answering before timer is up 
             },
         done: function(){
             $.each($("input[name='triviaQuestion-0']:checked"),function(){
-                if($(this).val()==questions[0].correcAns){
+                if($(this).val()==questions[0].correctAns){
                     game.correct++;
                 }
                 else {
@@ -160,10 +161,18 @@ var questions = [
              clearInterval(timer);
              $("#qWrapper h2").remove();
              $("#qWrapper").html("<h2>All done!</h2>");
-             $("#qWrapper").append("<h3>Correct Answers:" +this.correct+"</h3>");
-             $("#qWrapper").append("<h3>Inorrect Answers:" +this.incorrect+"</h3>");
+             $("#qWrapper").append('<h3 index="correctA">Correct Answers:' +this.correct+'</h3>');
+             $("#qWrapper").append("<h3>Incorrect Answers:" +this.incorrect+"</h3>");
              $("#qWrapper").append("<h3>Unanswered Questions:" +(questions.length-(this.incorrect+this.correct))+"</h3>");
-         }
-    } //end of game object
+             $("#qWrapper").append('<br><button id="replay">Replay</button>')
+            },
+        reset: function(){
+            $("#qWrapper").empty();
+            $("#qWrapper").append('<button id="start">Start</button>');
+           counter=5;
+            }
+
+        }
+     //end of game object
 //doc-ready closing tag
 });
