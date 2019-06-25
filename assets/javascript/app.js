@@ -83,7 +83,7 @@ var questions = [
                 
                      for (var j=0; j<questions[i].answerOptions.length; j++) {  
                         $("#qWrapper").append("<div class='form-check'></<div><input class='form-check-input answerInput' type='radio' name='triviaQuestion-"+i+"' value='"+questions[i].answerOptions[j]+"'>"+
-                        "<label class='form-check-label answerItems' for='triviaQuestion-"+i+"'>' + questions[i].answerOptions[j] + '</label>'")
+                        "<label class='form-check-label answerItems' for='triviaQuestion-"+i+"'> "+ questions[i].answerOptions[j] +" </label>")
 
                        }
                      }
