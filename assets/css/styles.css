@@ -69,7 +69,7 @@
 }
 #start {
     padding: 5px 5px 5px 5px;
-    margin: 10px 10px 10px 10px;
+    margin: auto;
     width: 250px;
     height: 70px;
     background-color: blueviolet;
@@ -86,6 +86,7 @@
     transition-duration: 0.4s;
     cursor: pointer;
     letter-spacing: 3px;
+    text-align: center;
 }
 
 #end, #replay {
@@ -104,6 +105,7 @@
     font-family: 'Bungee', cursive;
     cursor: pointer;
     letter-spacing: 3px;
+    text-align: center;
     }
 
     .button2:hover {
@@ -112,5 +114,5 @@
 
     #bWrapper {
         margin: auto;
-        width: 38%;
+        width: 24%;
     }

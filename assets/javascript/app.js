@@ -164,13 +164,13 @@ var questions = [
              $("#qWrapper").append('<div id="incorrectA">Incorrect Answers:  ' +this.incorrect+'</div>');
              $("#qWrapper").append('<div id="unanswered">Unanswered Questions:  ' +(questions.length-(this.incorrect+this.correct))+'</div>');
              $("#qWrapper").append('<div id="bWrapper"><br><button id="replay" class="button2">Replay</button></div>')
+             game.counter=30;
+             timer=undefined;
             },
         reset: function(){
             $("#insText").append('<p class="lead" id="myInstructions">You have 30 seconds to see how many questions you can answer correctly.</p>'); 
             $("#qWrapper").empty();
             $("#qWrapper").append('<div id="bWrapper"><button id="start" class="button2">Start</button></div>');
-            game.counter=30;
-            timer=undefined;
             }
 
         }
