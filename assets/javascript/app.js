@@ -56,29 +56,29 @@ var questions = [
           correctAns: "12"
            }
       ];
-       
+    
+    var timer= undefined; //made global to facilitate the replay & reset the timer
+      
+    //game object includes game functions
     var game = {
         correct: 0,
         incorrect: 0,
         unasnwered: 0,
-        counter: 5,
+        counter: 30,
         countdown: function(){
             game.counter--;
             $("#counter").html(game.counter);
             if (game.counter < 0){
                 alert("Time is up!");
+                clearInterval(timer);
                 game.done();
                 }
             },
         start: function() {         
             timer = setInterval(game.countdown,1000);
-                $("#qWrapper").prepend('<h2>Time Remaining: <span id="counter">30</span> Seconds</h2>');
-
+                $("#qWrapper").prepend('<div id="timer">Time Remaining: <span id="counter">30</span> seconds</div>');
+                $("#myInstructions").remove(); //remove instruction text
                 $("#start").remove(); //removes Start button after clicked
-
-             //   $(document).on("click", "#end", function() {
-              //      count();
-
                     for (var i=0; i<questions.length; i++){
                         $("#qWrapper").append('<div class="triviaQuestion">' + questions[i].triviaQuestion + '</div>')
                 
@@ -88,7 +88,7 @@ var questions = [
                        }
                      }
                     
-               $("#qWrapper").append('<br><button id="end">Done</button>')    //adds Done button if user finishes answering before timer is up 
+               $("#qWrapper").append('<div id="bWrapper"><br><button id="end" class="button2">Done</button></div>')    //adds Done button if user finishes answering before timer is up 
             },
         done: function(){
             $.each($("input[name='triviaQuestion-0']:checked"),function(){
@@ -158,18 +158,19 @@ var questions = [
             this.result();
             },
         result: function(){
-             clearInterval(timer);
              $("#qWrapper h2").remove();
-             $("#qWrapper").html("<h2>All done!</h2>");
-             $("#qWrapper").append('<h3 index="correctA">Correct Answers:' +this.correct+'</h3>');
-             $("#qWrapper").append("<h3>Incorrect Answers:" +this.incorrect+"</h3>");
-             $("#qWrapper").append("<h3>Unanswered Questions:" +(questions.length-(this.incorrect+this.correct))+"</h3>");
-             $("#qWrapper").append('<br><button id="replay">Replay</button>')
+             $("#qWrapper").html('<div id="allDone">All done!</div>');
+             $("#qWrapper").append('<div id="correctA">Correct Answers:  ' +this.correct+'</div>');
+             $("#qWrapper").append('<div id="incorrectA">Incorrect Answers:  ' +this.incorrect+'</div>');
+             $("#qWrapper").append('<div id="unanswered">Unanswered Questions:  ' +(questions.length-(this.incorrect+this.correct))+'</div>');
+             $("#qWrapper").append('<div id="bWrapper"><br><button id="replay" class="button2">Replay</button></div>')
             },
         reset: function(){
+            $("#insText").append('<p class="lead" id="myInstructions">You have 30 seconds to see how many questions you can answer correctly.</p>'); 
             $("#qWrapper").empty();
-            $("#qWrapper").append('<button id="start">Start</button>');
-           counter=5;
+            $("#qWrapper").append('<div id="bWrapper"><button id="start" class="button2">Start</button></div>');
+            game.counter=30;
+            timer=undefined;
             }
 
         }
