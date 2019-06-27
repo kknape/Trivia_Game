@@ -78,7 +78,6 @@
     border-radius: 5px;
     color: white;
     font-size: 36pt;
-    /*margin: 0px 0px 5px 0px;*/
     line-height: 14pt;
     font-family: 'Bungee', cursive;
     cursor: pointer;
@@ -87,6 +86,7 @@
     cursor: pointer;
     letter-spacing: 3px;
     text-align: center;
+    justify-content: center;
 }
 
 #end, #replay {
@@ -100,12 +100,12 @@
     border-radius: 5px;
     color: white;
     font-size: 36pt;
-    /*margin: 0px 0px 5px 0px;*/
     line-height: 14pt;
     font-family: 'Bungee', cursive;
     cursor: pointer;
     letter-spacing: 3px;
     text-align: center;
+    justify-content: center;
     }
 
     .button2:hover {
