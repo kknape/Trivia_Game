@@ -28,7 +28,7 @@ var questions = [
 
     {   triviaQuestion: "Which way is up?",
         answerOptions: ["top", "left", "north"],
-        correctAns: "seven"
+        correctAns: "top"
          },
 
     {   triviaQuestion: "How many cards in a deck?",
@@ -43,7 +43,7 @@ var questions = [
 
      {   triviaQuestion: "What do you call a group of geese?",
          answerOptions: ["flock", "cluster", "gaggle"],
-         correctAns: "seven"
+         correctAns: "gaggle"
           },
 
     {   triviaQuestion: "How many legs does a lizard have?",
