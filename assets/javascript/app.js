@@ -2,76 +2,76 @@
 $(document).ready(function(){
 
 //User clicks "start" to begin the game. Timer starts, question sets are displayed.
-$(document).on('click', '#start', function(){
-    game.start();
-})
+    $(document).on('click', '#start', function(){
+        game.start();
+    })
 
-$(document).on('click', '#end', function(){
-    game.done();
-})
+    $(document).on('click', '#end', function(){
+        game.done();
+    })
 
-$(document).on('click', '#replay', function(){
-    game.reset();
-})
+    $(document).on('click', '#replay', function(){
+        game.reset();
+    })
 
 //questions array
 var questions = [
-    {   triviaQuestion: "What color is a blueberry?",
-        answerOptions: ["blue", "green", "red"],
-        correctAns: "blue"
+    {   triviaQuestion: "The Wolverines were a band of teenage freedom fighters in what movie that imagined a Soviet attack in the heart of the United States?",
+        answerOptions: ["Red Dawn", "War Games", "Born on the Fourth of July"],
+        correctAns: "Red Dawn"
          },
 
-    {   triviaQuestion: "How many days in a week?",
-        answerOptions: ["four", "seven", "five"],
-        correctAns: "seven"
+    {   triviaQuestion: "Whose first big hit was as a Seattle teen hacker in the 1983 hit 'War Games'?",
+        answerOptions: ["River Phoenix", "John Cusack", "Matthew Broderick"],
+        correctAns: "Matthew Broderick"
          },
 
-    {   triviaQuestion: "Which way is up?",
-        answerOptions: ["top", "left", "north"],
-        correctAns: "top"
+    {   triviaQuestion: "Which of these actors was not in the 1986 hit, 'Stand By Me'",
+        answerOptions: ["Kiefer Sutherland", "Matt Damon", "River Pheonix"],
+        correctAns: "Matt Damon"
          },
 
-    {   triviaQuestion: "How many cards in a deck?",
-         answerOptions: ["50", "52", "56"],
-         correctAns: "52"
+    {   triviaQuestion: "In what 1984 teen comedy can you spot the brother and sister duo, Joan and John Cusack?",
+         answerOptions: ["Sixteen Candles", "Ferris Bueller's Day Off", "The Goonies"],
+         correctAns: "Sixteen Candles"
           },
 
-     {   triviaQuestion: "What color is an apple?",
-         answerOptions: ["purple", "green", "black"],
-         correctAns: "green"
+     {   triviaQuestion: "Iron Man actor, Robert Downey Jr., also made an appearance in what 1985 comedy about two teens that create a beautiful woman, named Lisa?",
+         answerOptions: ["The Princess Bride", "Weird Science", "Stand By Me"],
+         correctAns: "Weird Science"
           },
 
-     {   triviaQuestion: "What do you call a group of geese?",
-         answerOptions: ["flock", "cluster", "gaggle"],
-         correctAns: "gaggle"
+     {   triviaQuestion: "What 1982 comedy, does Sean Penn play surfer dude, Jeff Spicoli?",
+         answerOptions: ["Ferris Bueller's Day Off", "Fast Times at Ridgemont High", "The Breakfast Club"],
+         correctAns: "Fast Times at Ridgemont High"
           },
 
-    {   triviaQuestion: "How many legs does a lizard have?",
-          answerOptions: ["two", "four", "six"],
-          correctAns: "four"
+    {   triviaQuestion: "Which of these Chicago attractions does Ferris Beuller not visit on his day off?",
+          answerOptions: ["Sears Tower", "Metropolitan Museum of Art", "Wrigley Field"],
+          correctAns: "Metropolitan Museum of Art"
            },
 
-    {   triviaQuestion: "How many items are in a dozen?",
-          answerOptions: ["12", "14", "10"],
-          correctAns: "12"
+    {   triviaQuestion: "Which 1980s hit does not feature actress Molly Ringwald?",
+          answerOptions: ["Pretty in Pink", "The Breakfast Club", "Some Kind of Wonderful"],
+          correctAns: "Some Kind of Wonderful"
            }
       ];
     
     var timer= undefined; //made global to facilitate the replay & reset the timer
-      
+     
     //game object includes game functions
     var game = {
         correct: 0,
         incorrect: 0,
         unasnwered: 0,
-        counter: 30,
+        counter: 60,
         countdown: function(){
             game.counter--;
             $("#counter").html(game.counter);
             if (game.counter < 0){
                 alert("Time is up!");
-                clearInterval(timer);
                 game.done();
+    //            clearInterval(timer);
                 }
             },
         start: function() {         
@@ -91,6 +91,7 @@ var questions = [
                $("#qWrapper").append('<div id="bWrapper"><br><button id="end" class="button2">Done</button></div>')    //adds Done button if user finishes answering before timer is up 
             },
         done: function(){
+            clearInterval(timer);
             $.each($("input[name='triviaQuestion-0']:checked"),function(){
                 if($(this).val()==questions[0].correctAns){
                     game.correct++;
@@ -100,7 +101,7 @@ var questions = [
                 }
             });
             $.each($("input[name='triviaQuestion-1']:checked"),function(){
-                if($(this).val()==questions[1].correcAns){
+                if($(this).val()==questions[1].correctAns){
                     game.correct++;
                 }
                 else {
@@ -108,7 +109,7 @@ var questions = [
                 }
             });
             $.each($("input[name='triviaQuestion-2']:checked"),function(){
-                if($(this).val()==questions[2].correcAns){
+                if($(this).val()==questions[2].correctAns){
                     game.correct++;
                 }
                 else {
@@ -116,7 +117,7 @@ var questions = [
                 }
             });
             $.each($("input[name='triviaQuestion-3']:checked"),function(){
-                if($(this).val()==questions[3].correcAns){
+                if($(this).val()==questions[3].correctAns){
                     game.correct++;
                 }
                 else {
@@ -124,7 +125,7 @@ var questions = [
                 }
             });
             $.each($("input[name='triviaQuestion-4']:checked"),function(){
-                if($(this).val()==questions[4].correcAns){
+                if($(this).val()==questions[4].correctAns){
                     game.correct++;
                 }
                 else {
@@ -132,7 +133,7 @@ var questions = [
                 }
             });
             $.each($("input[name='triviaQuestion-5']:checked"),function(){
-                if($(this).val()==questions[5].correcAns){
+                if($(this).val()==questions[5].correctAns){
                     game.correct++;
                 }
                 else {
@@ -140,7 +141,7 @@ var questions = [
                 }
             });
             $.each($("input[name='triviaQuestion-6']:checked"),function(){
-                if($(this).val()==questions[6].correcAns){
+                if($(this).val()==questions[6].correctAns){
                     game.correct++;
                 }
                 else {
@@ -148,7 +149,7 @@ var questions = [
                 }
             });
             $.each($("input[name='triviaQuestion-7']:checked"),function(){
-                if($(this).val()==questions[7].correcAns){
+                if($(this).val()==questions[7].correctAns){
                     game.correct++;
                 }
                 else {
@@ -164,15 +165,17 @@ var questions = [
              $("#qWrapper").append('<div id="incorrectA">Incorrect Answers:  ' +this.incorrect+'</div>');
              $("#qWrapper").append('<div id="unanswered">Unanswered Questions:  ' +(questions.length-(this.incorrect+this.correct))+'</div>');
              $("#qWrapper").append('<div id="bWrapper"><br><button id="replay" class="button2">Replay</button></div>')
-             game.counter=30;
+             game.counter=60;
              timer=undefined;
             },
         reset: function(){
+            game.correct=0;
+            game.incorrect=0; 
+            game.unanswered=0;
             $("#insText").append('<p class="lead" id="myInstructions">You have 30 seconds to see how many questions you can answer correctly.</p>'); 
             $("#qWrapper").empty();
-            $("#qWrapper").append('<div id="bWrapper"><button id="start" class="button2">Start</button></div>');
+            $("#qWrapper").append('<div id="bWrapper"><button id="start" class="button2">Start</button></div>');   
             }
-
         }
      //end of game object
 //doc-ready closing tag
