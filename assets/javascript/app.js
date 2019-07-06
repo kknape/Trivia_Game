@@ -172,7 +172,7 @@ var questions = [
             game.correct=0;
             game.incorrect=0; 
             game.unanswered=0;
-            $("#insText").append('<p class="lead" id="myInstructions">You have 30 seconds to see how many questions you can answer correctly.</p>'); 
+            $("#insText").append('<p class="lead" id="myInstructions">You have 60 seconds to see how many questions you can answer correctly.</p>'); 
             $("#qWrapper").empty();
             $("#qWrapper").append('<div id="bWrapper"><button id="start" class="button2">Start</button></div>');   
             }
