@@ -76,7 +76,7 @@ var questions = [
             },
         start: function() {         
             timer = setInterval(game.countdown,1000);
-                $("#qWrapper").prepend('<div id="timer">Time Remaining: <span id="counter">30</span> seconds</div>');
+                $("#qWrapper").prepend('<div id="timer">Time Remaining: <span id="counter">60</span> seconds</div>');
                 $("#myInstructions").remove(); //remove instruction text
                 $("#start").remove(); //removes Start button after clicked
                     for (var i=0; i<questions.length; i++){
