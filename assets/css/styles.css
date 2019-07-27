@@ -1,5 +1,5 @@
 .myContainer {
-    margin: 100px 200px 0px 200px;
+    margin-top: 30px;
 } 
 
 .myTitle {
@@ -54,7 +54,7 @@
 }
 
 #allDone {
-    font-size: 56pt;
+    font-size: 52pt;
     color: rgb(33, 33, 78);
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -78,14 +78,14 @@
 }
 #start {
     padding: 5px 5px 5px 5px;
-    width: 250px;
+    width: auto;
     height: 70px;
     background-color: blueviolet;
     border-style: outset;
     border-color: rgb(38, 6, 68);
     border-radius: 5px;
     color: white;
-    font-size: 36pt;
+    font-size: 32pt;
     line-height: 14pt;
     font-family: 'Bungee', cursive;
     cursor: pointer;
@@ -98,14 +98,14 @@
 #end, #replay {
     padding: 5px 5px 5px 5px;
     margin: 10px 10px 10px 10px;
-    width: 250px;
+    width: auto;
     height: 70px;
     background-color: rgb(49, 32, 65);
     border-style: outset;
     border-color: rgb(38, 6, 68);
     border-radius: 5px;
     color: white;
-    font-size: 36pt;
+    font-size: 32pt;
     line-height: 14pt;
     font-family: 'Bungee', cursive;
     cursor: pointer;

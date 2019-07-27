@@ -88,7 +88,7 @@ $(document).ready(function(){
                            }
                          }
                         
-                   $("#qWrapper").append('<div class="mx-auto" style="width: 250px;" id="bWrapper"><br><button id="end" class="button2">Done</button></div>')    //adds Done button if user finishes answering before timer is up 
+                   $("#qWrapper").append('<div class="mx-auto" style="width: 200px;" id="bWrapper"><br><button id="end" class="button2">Done</button></div>')    //adds Done button if user finishes answering before timer is up 
                 },
             done: function(){
                 clearInterval(timer);
@@ -164,7 +164,7 @@ $(document).ready(function(){
                  $("#qWrapper").append('<div id="correctA">Correct Answers:  ' +this.correct+'</div>');
                  $("#qWrapper").append('<div id="incorrectA">Incorrect Answers:  ' +this.incorrect+'</div>');
                  $("#qWrapper").append('<div id="unanswered">Unanswered Questions:  ' +(questions.length-(this.incorrect+this.correct))+'</div>');
-                 $("#qWrapper").append('<div class="mx-auto" style="width: 250px;" id="bWrapper"><br><button id="replay" class="button2">Replay</button></div>')
+                 $("#qWrapper").append('<div class="mx-auto" style="width: 200px;" id="bWrapper"><br><button id="replay" class="button2">Replay</button></div>')
                  game.counter=60;
                  timer=undefined;
                 },
@@ -174,7 +174,7 @@ $(document).ready(function(){
                 game.unanswered=0;
                 $("#insText").append('<p class="lead" id="myInstructions">You have 60 seconds to see how many questions you can answer correctly.</p>'); 
                 $("#qWrapper").empty();
-                $("#qWrapper").append('<div class="mx-auto" style="width: 250px;" id="bWrapper"><button id="start" class="button2">Start</button></div>');   
+                $("#qWrapper").append('<div class="mx-auto" style="width: 200px;" id="bWrapper"><button id="start" class="button2">Start</button></div>');   
                 }
             }
          //end of game object
