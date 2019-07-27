@@ -76,19 +76,19 @@ $(document).ready(function(){
                 },
             start: function() {         
                 timer = setInterval(game.countdown,1000);
-                    $("#qWrapper").prepend('<div id="timer">Time Remaining: <span id="counter">60</span> seconds</div>');
+                    $("#qWrapper").prepend('<div class="row" id="timer">Time Remaining: <span id="counter">60</span> seconds</div>');
                     $("#myInstructions").remove(); //remove instruction text
                     $("#start").remove(); //removes Start button after clicked
                         for (var i=0; i<questions.length; i++){
-                            $("#qWrapper").append('<div class="triviaQuestion">' + questions[i].triviaQuestion + '</div>')
+                            $("#qWrapper").append('<div class="triviaQuestion row">' + questions[i].triviaQuestion + '</div>')
                     
                          for (var j=0; j<questions[i].answerOptions.length; j++) {  
-                            $("#qWrapper").append("<div class='form-check'></<div><input class='form-check-input answerInput' type='radio' name='triviaQuestion-"+i+"' value='"+questions[i].answerOptions[j]+"'>"+
+                            $("#qWrapper").append("<div class='row form-check'></<div><input class='form-check-input answerInput' type='radio' name='triviaQuestion-"+i+"' value='"+questions[i].answerOptions[j]+"'>"+
                             "<label class='form-check-label answerItems' for='triviaQuestion-"+i+"'> "+ questions[i].answerOptions[j] +" </label>")
                            }
                          }
                         
-                   $("#qWrapper").append('<div id="bWrapper"><br><button id="end" class="button2">Done</button></div>')    //adds Done button if user finishes answering before timer is up 
+                   $("#qWrapper").append('<div class="mx-auto" style="width: 250px;" id="bWrapper"><br><button id="end" class="button2">Done</button></div>')    //adds Done button if user finishes answering before timer is up 
                 },
             done: function(){
                 clearInterval(timer);
@@ -164,7 +164,7 @@ $(document).ready(function(){
                  $("#qWrapper").append('<div id="correctA">Correct Answers:  ' +this.correct+'</div>');
                  $("#qWrapper").append('<div id="incorrectA">Incorrect Answers:  ' +this.incorrect+'</div>');
                  $("#qWrapper").append('<div id="unanswered">Unanswered Questions:  ' +(questions.length-(this.incorrect+this.correct))+'</div>');
-                 $("#qWrapper").append('<div id="bWrapper"><br><button id="replay" class="button2">Replay</button></div>')
+                 $("#qWrapper").append('<div class="mx-auto" style="width: 250px;" id="bWrapper"><br><button id="replay" class="button2">Replay</button></div>')
                  game.counter=60;
                  timer=undefined;
                 },
@@ -174,7 +174,7 @@ $(document).ready(function(){
                 game.unanswered=0;
                 $("#insText").append('<p class="lead" id="myInstructions">You have 60 seconds to see how many questions you can answer correctly.</p>'); 
                 $("#qWrapper").empty();
-                $("#qWrapper").append('<div id="bWrapper"><button id="start" class="button2">Start</button></div>');   
+                $("#qWrapper").append('<div class="mx-auto" style="width: 250px;" id="bWrapper"><button id="start" class="button2">Start</button></div>');   
                 }
             }
          //end of game object
